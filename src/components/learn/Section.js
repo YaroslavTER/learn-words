@@ -12,12 +12,18 @@ export class Section extends Component {
   }
 
   componentDidMount() {
+    let length = this.props.words.length;
     let words = this.props.words.map((element, i) => {
+      let isEven = i % 2 !== 0;
+      let isLast = i === length - 1;
+
       return (
         <SectionsElement
           key={i + element.word}
           word={element.word}
           translation={element.translation}
+          isEven={isEven}
+          isLast={isLast}
         />
       );
     });
@@ -26,8 +32,10 @@ export class Section extends Component {
 
   render() {
     return (
-      <div className="section">
-        <div className="section-name">{this.props.sectionName}</div>
+      <div className="section container section mb-2 rounded">
+        <div className="section-name mb-2 rounded-bottom d-flex justify-content-center">
+          {this.props.sectionName}
+        </div>
         {this.state.words}
       </div>
     );

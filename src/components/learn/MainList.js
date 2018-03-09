@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import "../../styles/App.css";
 import { Section } from "./Section";
+import { HideButton } from "./HideButton";
 
-export class Words extends Component {
+export class MainList extends Component {
   learningList = [
     {
       name: "a) terms",
@@ -36,6 +37,11 @@ export class Words extends Component {
         {
           word: "composition",
           translation: "1) склад  2) побудова, формування, утворення"
+        },
+        {
+          word: "domain",
+          translation:
+            "(предметна) область, контекст (середовище, в якому повинна працювати програма)"
         }
       ]
     }
@@ -65,8 +71,10 @@ export class Words extends Component {
   render() {
     return (
       <div>
-        <div className="learning-list">{this.state.sections}</div>
-        <button onClick={this.handleClick}>Hide</button>
+        <div className="container learning-list mt-3">
+          {this.state.sections}
+        </div>
+        <HideButton />
       </div>
     );
   }

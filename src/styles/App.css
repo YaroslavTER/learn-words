@@ -5,7 +5,7 @@
 }
 
 .section {
-  background-color: rgba(175, 174, 174, 0.3);
+  background-color: rgba(219, 219, 219);
 }
 
 .section-name {
@@ -14,6 +14,14 @@
 
 .even {
   background-color: rgb(245, 245, 245);
+}
+
+.hide-even {
+  color: rgb(245, 245, 245);
+}
+
+.hide-odd {
+  color: rgb(219, 219, 219);
 }
 
 .navbar {

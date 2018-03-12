@@ -4,8 +4,17 @@ import "../../styles/App.css";
 export class SectionsElement extends Component {
   render() {
     let sectionClassName = "section-element row";
+    let wordClassName = "word col-md-3";
+
     if (this.props.isEven) {
       sectionClassName += " even";
+      if (this.props.isHide) {
+        wordClassName += " hide-even";
+      }
+    } else {
+      if (this.props.isHide) {
+        wordClassName += " hide-odd";
+      }
     }
 
     if (this.props.isLast) {
@@ -14,7 +23,7 @@ export class SectionsElement extends Component {
 
     return (
       <div className={sectionClassName}>
-        <div className="word col-md-3">{this.props.word}</div>
+        <div className={wordClassName}>{this.props.word}</div>
         <div className="translation col-md-9">{this.props.translation}</div>
       </div>
     );

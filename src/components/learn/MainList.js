@@ -47,21 +47,34 @@ export class MainList extends Component {
     }
   ];
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
-      sections: []
+      sections: [],
+      isHide: false
     };
+    this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
+    this.fillSections();
+  }
+
+  handleClick() {
+    let reverseIsHide = !this.state.isHide;
+    this.setState({ isHide: reverseIsHide });
+    this.fillSections();
+  }
+
+  fillSections() {
     let sections = this.learningList.map((section, i) => {
       return (
         <Section
           key={i + section.name}
           sectionName={section.name}
           words={section.words}
+          isHide={this.state.isHide}
         />
       );
     });
@@ -74,7 +87,7 @@ export class MainList extends Component {
         <div className="container learning-list mt-3">
           {this.state.sections}
         </div>
-        <HideButton />
+        <HideButton onClick={this.handleClick} />
       </div>
     );
   }

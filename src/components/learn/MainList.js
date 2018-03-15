@@ -63,8 +63,9 @@ export class MainList extends Component {
 
   handleClick() {
     let reverseIsHide = !this.state.isHide;
-    this.setState({ isHide: reverseIsHide });
-    this.fillSections();
+    this.setState({ isHide: reverseIsHide }, () => {
+      this.fillSections();
+    });
   }
 
   fillSections() {

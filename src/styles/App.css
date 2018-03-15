@@ -12,6 +12,14 @@
   background-color: rgb(245, 245, 245);
 }
 
+.nav > li > a.active {
+  background-color: rgb(52, 58, 64) !important;
+}
+
+.nav > li > a {
+  color: rgb(52, 58, 64);
+}
+
 .even {
   background-color: rgb(245, 245, 245);
 }

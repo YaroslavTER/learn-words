@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import "../../styles/App.css";
 import { Section } from "./Section";
 import { HideButton } from "./HideButton";
+import { SectionList } from "./SectionList";
+import { TextHandler } from "../../process/TextHandler";
 
 export class MainList extends Component {
   learningList = [
@@ -58,6 +60,7 @@ export class MainList extends Component {
   }
 
   componentDidMount() {
+    //set learning list
     this.fillSections();
   }
 
@@ -87,7 +90,10 @@ export class MainList extends Component {
       <div>
         {this.props.inputText}
         <div className="container learning-list mt-3">
-          {this.state.sections}
+          <SectionList
+            inputList={TextHandler.convertTextToList(this.props.inputText)}
+            isHide={this.state.ishide}
+          />
         </div>
         <HideButton onClick={this.handleClick} />
       </div>

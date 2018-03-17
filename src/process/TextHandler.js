@@ -1,48 +1,30 @@
 export const TextHandler = {
   convertTextToList: inputText => {
-    let learningList = [
-      {
-        name: "a) terms",
-        words: [
-          {
-            word: "prefomance",
-            translation:
-              "1) робота, функціонування; експлуатаційні властивості 2) ККД"
-          },
-          {
-            word: "global control structure",
-            translation: "структура глобального керування"
-          },
-          {
-            word: "scaling",
-            translation: "масштабування, масштабне перетворення"
+    let textArray = inputText.split("\n");
+    let learningList = [];
+
+    textArray.map(element => {
+      if (element !== "") {
+        let isSectionElement = element.match(/–/g);
+        if (isSectionElement) {
+          let sectionElement = element.split("–");
+          let lastIndex = learningList.length - 1;
+          if (lastIndex === -1) {
+            learningList.push({ name: "to learn", words: [] });
+            lastIndex++;
           }
-        ]
-      },
-      {
-        name: "b) nouns",
-        words: [
-          {
-            word: "issue",
-            translation: "проблема, питання"
-          },
-          {
-            word: "synchronization",
-            translation: "синхронізація"
-          },
-          {
-            word: "composition",
-            translation: "1) склад  2) побудова, формування, утворення"
-          },
-          {
-            word: "domain",
-            translation:
-              "(предметна) область, контекст (середовище, в якому повинна працювати програма)"
-          }
-        ]
+
+          learningList[lastIndex].words.push({
+            word: sectionElement[0],
+            translation: sectionElement[1]
+          });
+        } else {
+          learningList.push({ name: element, words: [] });
+        }
       }
-    ];
-    console.log("processing...");
+
+      return null;
+    });
     return learningList;
   }
 };

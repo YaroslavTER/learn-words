@@ -16,19 +16,16 @@ export class MainList extends Component {
 
   handleClick() {
     let reverseIsHide = !this.state.isHide;
-    this.setState({ isHide: reverseIsHide }, () => {
-      console.log(this.state.isHide);
-    });
+    this.setState({ isHide: reverseIsHide });
   }
 
   render() {
     return (
       <div>
-        {this.props.inputText}
-        <div className="container learning-list mt-3">
+        <div className="container learning-list mt-2 mb-5">
           <SectionList
             inputList={TextHandler.convertTextToList(this.props.inputText)}
-            isHide={this.state.ishide}
+            isHide={this.state.isHide}
           />
         </div>
         <HideButton onClick={this.handleClick} />

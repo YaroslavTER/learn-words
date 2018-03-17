@@ -14,15 +14,10 @@ export class Panes extends Component {
     };
 
     this.handleChange = this.handleChange.bind(this);
-    this.handleClick = this.handleClick.bind(this);
   }
 
   handleChange(event) {
     this.setState({ value: event.target.value });
-  }
-
-  handleClick() {
-    console.log("process");
   }
 
   render() {
@@ -32,7 +27,6 @@ export class Panes extends Component {
           <div id="upload" className="container tab-pane active">
             <UploadHeader value="Input or copy/past text here" />
             <TextArea value={this.state.value} onChange={this.handleChange} />
-            <ProcessButton onClick={this.handleClick} />
           </div>
           <div id="learn" className="container tab-pane fade">
             <MainList inputText={this.state.value} />

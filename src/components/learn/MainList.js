@@ -85,6 +85,7 @@ export class MainList extends Component {
   render() {
     return (
       <div>
+        {this.props.inputText}
         <div className="container learning-list mt-3">
           {this.state.sections}
         </div>

@@ -20,6 +20,10 @@
   color: rgb(52, 58, 64);
 }
 
+.shadow {
+  box-shadow: 1px 1px 50px gray;
+}
+
 .even {
   background-color: rgb(245, 245, 245);
 }
